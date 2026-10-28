@@ -33,3 +33,87 @@ main#main-content {
     width: 100%;
 }
 
+/* ==================================================
+   HEADER
+================================================== */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* 1. Logo */
+.logo img {
+    height: 55px;
+    width: auto;
+    display: block;
+}
+
+/* 2. Middle: Desktop Navigation */
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+    display: inline-block;
+    padding: 0.4rem 0.2rem;
+    min-height: 24px;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    color: #000000;
+}
+
+/* 3. Right: Actions (Account + Cart + Mobile Toggle) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+/* 4. Hamburger Button (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px 8px;
+    border-radius: 6px;
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid #00F5FF;
+    outline-offset: 2px;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #1a1a1a;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+/* HEADER END */
+
