@@ -1,0 +1,29 @@
+# Ignore everything in the root
+/*
+
+# Allow git configs & CI/CD
+!.gitignore
+!.github/
+!.github/*.*
+
+# Allow project docs
+!README.md
+!docs/
+
+# Allow wp-content container
+!wp-content/
+
+# Only track your custom theme folder
+!wp-content/themes/
+!wp-content/themes/cmsdm/
+!wp-content/themes/cmsdm/**
+
+# Ignore default WordPress themes
+wp-content/themes/twenty*/**
+wp-content/themes/index.php
+wp-content/plugins/index.php
+
+wp-content/wc-logs/
+
+# macOS
+.DS_Store
