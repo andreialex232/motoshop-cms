@@ -46,6 +46,35 @@ get_header();
         </div>
     </section>
 
+    <!-- video -->
+    <?php if ($featured_video = get_field('featured_video')) : ?>
+        <section class="video-section">
+            <div class="video-container">
+                <?php if ($video_title = get_field('video_title')) : ?>
+                    <h2><?php echo esc_html($video_title); ?></h2>
+                <?php endif; ?>
+
+                <?php 
+                    $allowed_video_tags = [
+                        'iframe' => [
+                            'src'             => true,
+                            'width'           => true,
+                            'height'          => true,
+                            'frameborder'     => true,
+                            'allow'           => true,
+                            'allowfullscreen' => true,
+                            'loading'         => true,
+                            'title'           => true,
+                        ],
+                    ];
+
+                    $video_markup = str_replace('<iframe', '<iframe loading="lazy"', $featured_video);
+                    echo wp_kses($video_markup, $allowed_video_tags); 
+                ?>
+            </div>
+        </section>
+    <?php endif; ?>
+
 </main>
 
 <?php get_footer(); ?>

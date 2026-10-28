@@ -332,3 +332,34 @@ main#main-content {
     color: #475569;
 }
 
+/* Video Section */
+.video-section {
+    padding: 5rem 2rem;
+    background-color: #1A1A1A;
+    color: #ffffff;
+    text-align: center;
+}
+
+.video-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.video-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    border-radius: 12px;
+    display: block;
+}
+
