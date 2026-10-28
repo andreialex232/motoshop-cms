@@ -504,3 +504,205 @@ main#main-content {
 }
 /* SUSTAINABILITY END */
 
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+================================================== */
+
+/* Tablet Landscape & Medium Desktops (<= 1024px) */
+@media (max-width: 1024px) {
+    .site-header {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .hero-content {
+        padding: 3rem 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+    .site-header {
+        flex-wrap: wrap;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .logo img {
+        height: 46px;
+    }
+
+    /* Keep right actions grouped tightly on the top row */
+    .header-right {
+        gap: 0.5rem;
+    }
+
+    /* Mobile Hamburger */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer Navigation (Drops below on toggle) */
+    .main-nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        background-color: #ffffff;
+        border-top: 1px solid #f1f5f9;
+        margin-top: 0.75rem;
+    }
+
+    .main-nav.is-open {
+        display: block !important;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        padding: 1rem 0;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 0.75rem 1rem;
+        font-size: 1.05rem;
+        border-radius: 6px;
+        min-height: 44px;
+    }
+
+    .main-nav ul li a:hover,
+    .main-nav ul li a:focus {
+        background-color: #f8fafc;
+        color: #e11d48;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding: 3rem 1.5rem;
+        max-width: 100%;
+        justify-self: stretch;
+        text-align: center;
+    }
+
+    .hero-description {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        height: 320px;
+        order: -1;
+    }
+
+    .sustainability-hero {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .sustainability-hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .initiatives-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .initiatives-container {
+        gap: 1.5rem;
+    }
+
+    .initiative-card {
+        flex-direction: column;
+    }
+
+    .initiative-text-col {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .initiative-img-col {
+        height: 220px;
+        min-height: auto;
+    }
+
+    .btn-initiative {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Small Screens (<= 480px) */
+@media (max-width: 480px) {
+    .site-header {
+        padding: 0.6rem 1rem;
+    }
+
+    .logo img {
+        height: 38px;
+    }
+
+    .header-right {
+        gap: 0.25rem;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .brand-message {
+        padding: 3.5rem 1rem;
+    }
+
+    .brand-message h2,
+    .video-container h2,
+    .testimonials-container h2,
+    .blog-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .site-footer {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+
+}
+/* RESPONSIVE BREAKPOINTS END */
