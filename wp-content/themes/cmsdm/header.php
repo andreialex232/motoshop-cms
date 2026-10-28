@@ -17,6 +17,7 @@
     <!-- Navigation -->
     <nav class="main-nav" id="primary-menu" aria-label="Main Navigation">
         <ul>
+            <li><a href="<?php echo esc_url(home_url('/sustainability')); ?>">Sustainability initiatives</a></li>
         </ul>
     </nav>
 

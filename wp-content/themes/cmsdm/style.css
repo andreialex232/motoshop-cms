@@ -363,3 +363,144 @@ main#main-content {
     display: block;
 }
 
+/* ==================================================
+   SUSTAINABILITY PAGE
+================================================== */
+.sustainability-page {
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+.sustainability-hero {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.sustainability-hero-container {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fb2c58;
+    margin-bottom: 0.75rem;
+}
+
+.sustainability-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+}
+
+.sustainability-hero p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.initiatives-section {
+    padding: 4.5rem 2rem;
+}
+
+.initiatives-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.initiative-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.initiative-text-col {
+    flex: 1.2;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.initiative-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #e11d48;
+    margin-bottom: 0.5rem;
+}
+
+.initiative-header h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 1rem;
+}
+
+.initiative-content p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #475569;
+    margin-bottom: 1rem;
+}
+
+.initiative-content p:last-child {
+    margin-bottom: 0;
+}
+
+.initiative-action {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn-initiative {
+    display: inline-block;
+    background-color: #e11d48;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 8px;
+    min-height: 44px;
+    line-height: 24px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-initiative:hover {
+    background-color: #be123c;
+}
+
+.initiative-img-col {
+    flex: 0.9;
+    position: relative;
+    min-height: 280px;
+    padding: 10px;
+}
+
+.initiative-img-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* SUSTAINABILITY END */
+
