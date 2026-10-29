@@ -107,4 +107,39 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // checkout page fix for ARIA issue
+    // WCAG Best Practice: Fix presentational Stripe iframes & invalid div aria-disabled
+    (function() {
+        function cleanCheckoutAccessibility() {
+            // 1. Remove prohibited aria-disabled on generic divs
+            document.querySelectorAll('div[aria-disabled]').forEach(function(el) {
+                el.removeAttribute('aria-disabled');
+            });
+
+            // 2. Fix presentational iframe conflict:
+            // Remove role="presentation" or role="none" if the iframe has ARIA attributes/title
+            document.querySelectorAll('iframe[role="presentation"], iframe[role="none"]').forEach(function(frame) {
+                frame.removeAttribute('role');
+                if (!frame.getAttribute('title')) {
+                    frame.setAttribute('title', 'Payment Provider Component');
+                }
+            });
+        }
+
+        if (document.body && document.body.classList.contains('woocommerce-checkout')) {
+            cleanCheckoutAccessibility();
+
+            const observer = new MutationObserver(function() {
+                cleanCheckoutAccessibility();
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['aria-disabled', 'role']
+            });
+        }
+    })();
+
 });
