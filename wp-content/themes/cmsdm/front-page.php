@@ -75,6 +75,30 @@ get_header();
         </section>
     <?php endif; ?>
 
+    <!-- testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2><?php echo esc_html(get_field('testimonials_title') ?: 'Customer feedback'); ?></h2>
+
+            <div class="testimonial-items">
+                <?php for ($i = 1; $i <= 3; $i++) : 
+                    $name      = get_field("testimonial_{$i}_name");
+
+                    $quote      = get_field("testimonial_{$i}_quote");
+                ?>
+                    <div class="testimonial-item">
+                        <div class="testimonial-header">
+                            <div class="testimonial-meta">
+                                <h3 class="testimonial-author"><?php echo esc_html($name); ?></h3>
+                            </div>
+                        </div>
+
+                        <p class="testimonial-quote">“<?php echo esc_html($quote); ?>”</p>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php get_footer(); ?>
