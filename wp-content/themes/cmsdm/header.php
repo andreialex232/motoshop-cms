@@ -3,6 +3,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+$account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account');
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart');
 ?>
 <!DOCTYPE html>
@@ -36,6 +37,17 @@ $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url
 
     <!-- Header Right Controls -->
     <div class="header-right">
+        <!-- Account Link -->
+        <div class="account">
+            <a href="<?php echo esc_url($account_url); ?>" aria-label="My Account">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+                <span>Account</span>
+            </a>
+        </div>
+
         <!-- Cart Link -->
         <div class="cart">
             <a href="<?php echo esc_url($cart_url); ?>" aria-label="Shopping Cart">
