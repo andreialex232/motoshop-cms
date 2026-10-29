@@ -276,6 +276,30 @@ add_action( 'admin_post_nopriv_submit_test_ride', 'cmsdm_handle_test_ride' );
 add_action( 'admin_post_submit_test_ride', 'cmsdm_handle_test_ride' );
 
 
+//=================================//
+// Stripe Styling Filter
+//=================================//
+add_filter( 'wc_stripe_upe_params', function( $stripe_params ) {
+    $stripe_style = (object) [
+        'labels' => 'above',
+        'rules'  => (object) [
+            '.Input' => (object) [
+                'padding' => '12px 14px',
+            ],
+            '.Label' => (object) [
+                'fontWeight'   => '600',
+                'color'        => '#475569',
+                'marginBottom' => '6px',
+            ],
+        ],
+    ];
+
+    $stripe_params['blocksAppearance'] = $stripe_style;
+    $stripe_params['appearance'] = $stripe_style;
+
+    return $stripe_params;
+} );
+
 /**
  * Global dynamic meta description generator for SEO across all templates
  */
@@ -304,6 +328,9 @@ function motoshop_dynamic_meta_description() {
     } elseif ( function_exists( 'is_cart' ) && is_cart() ) {
         // Cart page
         $description = 'View and manage items in your shopping cart before proceeding to checkout at MotoShop.';
+    } elseif ( function_exists( 'is_checkout' ) && is_checkout() ) {
+        // Checkout page
+        $description = 'Complete your motorcycle and gear order securely with multiple payment options at MotoShop.';
     } elseif ( is_singular() ) {
         // Regular single posts, pages (Contact, Sustainability, Test Ride, etc.)
         global $post;
@@ -330,3 +357,6 @@ function motoshop_dynamic_meta_description() {
 }
 add_action( 'wp_head', 'motoshop_dynamic_meta_description', 1 );
 
+// Clear the cached Stripe appearance transients so changes load immediately
+delete_transient( 'wc_stripe_appearance' );
+delete_transient( 'wc_stripe_blocks_appearance' );
