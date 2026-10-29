@@ -488,6 +488,130 @@ main#main-content {
     align-items: start;
 }
 
+/* Sidebar Container */
+.shop-sidebar {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.shop-sidebar .widget-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #9f1239;
+}
+
+/* Collapsible <details> Reset */
+.category-collapsible summary.widget-title {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    pointer-events: none;
+    min-height: 44px;
+}
+
+.category-collapsible summary.widget-title:focus {
+    outline: none;
+}
+
+.category-collapsible summary::-webkit-details-marker {
+    display: none;
+}
+
+.category-collapsible .toggle-icon {
+    display: none;
+    font-size: 0.85rem;
+    color: #9f1239;
+    transition: transform 0.2s ease;
+}
+
+.category-collapsible[open] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Category Tree List - All links padded to 44px for WCAG AAA 2.5.5 */
+.shop-sidebar ul,
+.shop-sidebar ul.children,
+.shop-sidebar .product-categories {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 1. Category Tree Top-Level Links (if they lack explicit min-height or contrast) */
+.shop-sidebar .product-categories li a,
+.shop-sidebar .widget_product_categories ul li a {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    color: #0f172a !important;
+}
+
+.shop-sidebar .product-categories > li {
+    margin-bottom: 0.25rem;
+}
+
+.shop-sidebar .product-categories > li > a {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0f172a;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0.25rem;
+    box-sizing: border-box;
+    transition: color 0.2s ease;
+}
+
+.shop-sidebar .product-categories > li > a:hover {
+    color: #9f1239;
+}
+
+/* Subcategories */
+.shop-sidebar ul.children {
+    margin-top: 0.25rem !important;
+    padding-left: 1rem !important;
+    border-left: 2px solid #e2e8f0;
+}
+
+.shop-sidebar ul.children li {
+    margin-bottom: 0.15rem;
+    display: flex;
+    align-items: center;
+}
+
+.shop-sidebar ul.children li a {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: #334155;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.5rem 0.25rem;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.shop-sidebar ul.children li a:hover {
+    color: #9f1239;
+    transform: translateX(3px);
+}
+
+.shop-sidebar li.current-cat > a {
+    color: #9f1239 !important;
+    font-weight: 800 !important;
+}
+
 /* ==================================================
    SHOP PAGE END
 ================================================== */

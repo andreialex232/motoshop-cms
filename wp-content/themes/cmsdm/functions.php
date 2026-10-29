@@ -121,6 +121,41 @@ function cmsdm_add_woocommerce_support() {
 add_action('after_setup_theme', 'cmsdm_add_woocommerce_support');
 
 
+// Filter for different categories
+function cmsdm_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Shop Sidebar', 'cmsdm' ),
+        'id'            => 'shop-sidebar',
+        'description'   => __( 'Widgets in this area will be shown on shop and product archive pages.', 'cmsdm' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s shop-widget">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'cmsdm_widgets_init' );
+
+// Remove count numbers from product category lists
+add_filter( 'woocommerce_product_categories_widget_args', function( $args ) {
+    $args['show_count'] = 0;
+    return $args;
+} );
+
+add_filter( 'wp_list_categories_args', function( $args ) {
+    if ( isset( $args['taxonomy'] ) && 'product_cat' === $args['taxonomy'] ) {
+        $args['show_count'] = 0;
+    }
+    return $args;
+} );
+
+// Strip out all "(X)" count strings from the rendered category HTML
+add_filter( 'wp_list_categories', function( $output, $args ) {
+    if ( ! isset( $args['taxonomy'] ) || 'product_cat' === $args['taxonomy'] ) {
+        $output = preg_replace( '/\s*\(\d+\)/', '', $output );
+    }
+    return $output;
+}, 99, 2 );
+
 //=================================//
 // Test drive page logic
 //=================================//
