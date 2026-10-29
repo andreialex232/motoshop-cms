@@ -82,7 +82,13 @@ get_header();
 
             <div class="testimonial-items">
                 <?php for ($i = 1; $i <= 3; $i++) : 
+                    $is_active = get_field("testimonial_{$i}_active");
                     $name      = get_field("testimonial_{$i}_name");
+
+                    // If toggle is OFF or name is empty, skip review
+                    if (!$is_active || empty($name)) {
+                        continue;
+                    }
 
                     $quote      = get_field("testimonial_{$i}_quote");
                 ?>
