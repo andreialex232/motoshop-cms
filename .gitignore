@@ -23,6 +23,21 @@ wp-content/themes/twenty*/**
 wp-content/themes/index.php
 wp-content/plugins/index.php
 
+# ==================================================
+# Exclude Plugin Dumps, Wordfence & Updraft Data
+# ==================================================
+wp-content/plugins/
+wp-content/wflogs/
+wp-content/updraft/
+wp-content/cache/
+wp-content/wpo-cache/
+wp-content/uploads/
+*.log
+wordfence-waf.php
+.user.ini
+
+# WooCommerce Generated Data
+wp-content/uploads/woocommerce_uploads/
 wp-content/wc-logs/
 
 # macOS
