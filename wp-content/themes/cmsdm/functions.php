@@ -301,6 +301,9 @@ function motoshop_dynamic_meta_description() {
         // Product category pages
         $term_desc = term_description();
         $description = ! empty( $term_desc ) ? $term_desc : 'Shop ' . single_term_title( '', false ) . ' designed for rider safety and durability at MotoShop.';
+    } elseif ( function_exists( 'is_cart' ) && is_cart() ) {
+        // Cart page
+        $description = 'View and manage items in your shopping cart before proceeding to checkout at MotoShop.';
     } elseif ( is_singular() ) {
         // Regular single posts, pages (Contact, Sustainability, Test Ride, etc.)
         global $post;
