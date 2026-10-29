@@ -2604,6 +2604,153 @@ body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
 ================================================== */
 
 /* ==================================================
+   ORDER RECEIVED (THANK YOU) PAGE
+================================================== */
+/* 1. Page Bounds */
+.woocommerce-order-received .entry-content,
+.woocommerce-order-received main {
+    max-width: 1000px !important;
+    margin: 2.5rem auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Success Banner Header */
+.woocommerce-order-received h1.entry-title,
+.woocommerce-order-received .woocommerce-notice--success {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.woocommerce-order-received .woocommerce-notice--success {
+    background-color: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+    color: #166534 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    padding: 1rem 1.25rem !important;
+    border-radius: 10px !important;
+    margin-bottom: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 3. Horizontal Meta Bar (Order #, Date, Total, Payment Method) */
+ul.woocommerce-order-overview {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    padding: 1.25rem 1.5rem !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    list-style: none !important;
+    margin: 0 0 2.5rem 0 !important;
+}
+
+ul.woocommerce-order-overview li {
+    flex: 1 1 180px !important;
+    border-right: 1px solid #e2e8f0 !important;
+    padding-right: 1rem !important;
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    color: #64748b !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 600 !important;
+}
+
+ul.woocommerce-order-overview li:last-child {
+    border-right: none !important;
+}
+
+ul.woocommerce-order-overview li strong {
+    display: block !important;
+    font-size: 1.05rem !important;
+    color: #0f172a !important;
+    text-transform: none !important;
+    font-weight: 700 !important;
+    margin-top: 4px !important;
+}
+
+/* 4. Order Details Card & Table */
+.woocommerce-order-details {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 1.75rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.woocommerce-order-details__title {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-bottom: 1.25rem !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 2px solid #e11d48 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.woocommerce-table--order-details {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: none !important;
+}
+
+.woocommerce-table--order-details th,
+.woocommerce-table--order-details td {
+    padding: 1rem 0.5rem !important;
+    border: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    color: #334155 !important;
+}
+
+.woocommerce-table--order-details thead th {
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #64748b !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.woocommerce-table--order-details .product-name {
+    font-weight: 600 !important;
+    color: #0f172a !important;
+}
+
+.woocommerce-table--order-details .product-total,
+.woocommerce-table--order-details tfoot td {
+    text-align: right !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+}
+
+.woocommerce-table--order-details tfoot th {
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    color: #64748b !important;
+    font-weight: 600 !important;
+}
+
+/* Highlight Final Total Row */
+.woocommerce-table--order-details tfoot tr:last-child th,
+.woocommerce-table--order-details tfoot tr:last-child td {
+    border-top: 2px solid #e2e8f0 !important;
+    border-bottom: none !important;
+    padding-top: 1.25rem !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+}
+
+.woocommerce-table--order-details tfoot tr:last-child td {
+    color: #e11d48 !important;
+}
+
+/* ==================================================
    SUSTAINABILITY PAGE
 ================================================== */
 .sustainability-page {
