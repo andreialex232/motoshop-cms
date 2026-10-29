@@ -3058,6 +3058,163 @@ ul.woocommerce-order-overview li strong {
     border-color: #9f1239 !important;
 }
 
+/*my account orders page*/
+/* 1. Account Notice Banner (Confirm Email / Verification) */
+.woocommerce-account .woocommerce-message,
+.woocommerce-account .woocommerce-info {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important; /* Prevents text from breaking onto a second row */
+    gap: 1.5rem !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 4px solid #9f1239 !important; /* Crimson theme accent */
+    border-radius: 8px !important;
+    padding: 1.25rem 1.5rem !important;
+    margin-bottom: 2rem !important;
+    color: #334155 !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.woocommerce-account .woocommerce-info::before,
+.woocommerce-account .woocommerce-message::before {
+    display: none !important; /* Remove legacy WooCommerce icons */
+}
+
+/* Notice button (Confirm email address) */
+.woocommerce-account .woocommerce-info .button,
+.woocommerce-account .woocommerce-message .button {
+    order: 2 !important;
+    margin: 0 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 0.65rem 1.25rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.woocommerce-account .woocommerce-info .button:hover,
+.woocommerce-account .woocommerce-message .button:hover {
+    background: #9f1239 !important;
+}
+
+/* 2. Orders Table Structure */
+.woocommerce-account table.woocommerce-orders-table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    margin-top: 1rem !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table th {
+    background-color: #f8fafc !important;
+    color: #475569 !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 1rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    text-align: left !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table td {
+    padding: 1.25rem 1rem !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    color: #1e293b !important;
+    font-size: 0.95rem !important;
+    vertical-align: middle !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Order Number Link (#204, #198) */
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-number a {
+    color: #9f1239 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-number a:hover {
+    text-decoration: underline !important;
+}
+
+/* 3. Actions Column Buttons (Pay, View, Cancel) */
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions {
+    text-align: right !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions .button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.45rem 0.9rem !important;
+    margin: 0.2rem 0.15rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    min-height: 40px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+
+/* "View" button: Clean Outline Style */
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions .button.view {
+    background-color: #f8fafc !important;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions .button.view:hover {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    border-color: #0f172a !important;
+}
+
+/* "Pay" button: Crimson Brand Accent */
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions .button.pay {
+    background-color: #9f1239 !important;
+    color: #ffffff !important;
+    border: 1px solid #9f1239 !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions .button.pay:hover {
+    background-color: #881337 !important;
+    border-color: #881337 !important;
+}
+
+/* "Cancel" button: Subtle Gray/Muted */
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions .button.cancel {
+    background-color: transparent !important;
+    color: #64748b !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.woocommerce-account table.woocommerce-orders-table td.woocommerce-orders-table__cell-order-actions .button.cancel:hover {
+    background-color: #fee2e2 !important;
+    color: #b91c1c !important;
+    border-color: #fca5a5 !important;
+}
+
 /* ==================================================
    RESPONSIVE BREAKPOINTS
 ================================================== */
