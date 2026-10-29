@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // category filter on webshop collapses when opened under 1024px width screen
+    if (window.innerWidth <= 1024) {
+        document.querySelectorAll('.category-collapsible').forEach(el => el.removeAttribute('open'));
+    }
+
     // test drive page logic
     const form = document.getElementById('testRideForm');
     if (form) {

@@ -25,6 +25,7 @@ if (!defined('ABSPATH')) {
     <!-- Navigation -->
     <nav class="main-nav" id="primary-menu" aria-label="Main Navigation">
         <ul>
+            <li><a href="<?php echo esc_url(home_url('/shop')); ?>">Shop</a></li>
             <li><a href="<?php echo esc_url(home_url('/test')); ?>">Test drive</a></li>
             <li><a href="<?php echo esc_url(home_url('/blog')); ?>">Blog</a></li>
             <li><a href="<?php echo esc_url(home_url('/sustainability')); ?>">Sustainability initiatives</a></li>

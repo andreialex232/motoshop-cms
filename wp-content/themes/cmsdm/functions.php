@@ -114,6 +114,85 @@ add_action('admin_post_handle_contact_form', 'handle_contact_form_submission');
 add_action('admin_post_nopriv_handle_contact_form', 'handle_contact_form_submission');
 
 
+// WooCommerce theme support
+function cmsdm_add_woocommerce_support() {
+    add_theme_support('woocommerce');
+}
+add_action('after_setup_theme', 'cmsdm_add_woocommerce_support');
+
+
+//=================================//
+// Shop page filters
+//=================================//
+// Add A-Z and Z-A options to the sorting dropdown
+add_filter( 'woocommerce_catalog_orderby', function( $options ) {
+    unset( $options['popularity'] );
+    unset( $options['rating'] );
+
+    $options['title_asc']  = __( 'Name: A to Z', 'woocommerce' );
+    $options['title_desc'] = __( 'Name: Z to A', 'woocommerce' );
+    return $options;
+});
+
+// Handle the orderby query for title sorting
+add_filter( 'woocommerce_get_catalog_ordering_args', function( $args ) {
+    $orderby_value = isset( $_GET['orderby'] ) ? wc_clean( (string) wp_unslash( $_GET['orderby'] ) ) : wc_clean( get_option( 'woocommerce_default_catalog_orderby' ) );
+
+    if ( 'title_asc' === $orderby_value ) {
+        $args['orderby'] = 'title';
+        $args['order']   = 'ASC';
+    } elseif ( 'title_desc' === $orderby_value ) {
+        $args['orderby'] = 'title';
+        $args['order']   = 'DESC';
+    }
+
+    return $args;
+});
+
+// Filter for different categories
+function cmsdm_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Shop Sidebar', 'cmsdm' ),
+        'id'            => 'shop-sidebar',
+        'description'   => __( 'Widgets in this area will be shown on shop and product archive pages.', 'cmsdm' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s shop-widget">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'cmsdm_widgets_init' );
+
+// Remove count numbers from product category lists
+add_filter( 'woocommerce_product_categories_widget_args', function( $args ) {
+    $args['show_count'] = 0;
+    return $args;
+} );
+
+add_filter( 'wp_list_categories_args', function( $args ) {
+    if ( isset( $args['taxonomy'] ) && 'product_cat' === $args['taxonomy'] ) {
+        $args['show_count'] = 0;
+    }
+    return $args;
+} );
+
+// Strip out all "(X)" count strings from the rendered category HTML
+add_filter( 'wp_list_categories', function( $output, $args ) {
+    if ( ! isset( $args['taxonomy'] ) || 'product_cat' === $args['taxonomy'] ) {
+        $output = preg_replace( '/\s*\(\d+\)/', '', $output );
+    }
+    return $output;
+}, 99, 2 );
+
+// Fix for ARIA issue in siteimprove addon
+add_filter( 'woocommerce_pagination_args', function( $args ) {
+    return $args;
+});
+
+add_filter( 'paginate_links_output', function( $html ) {
+    return preg_replace( '/(<span[^>]*?)\saria-label="[^"]*"([^>]*?>)/i', '$1$2', $html );
+}, 20 );
+
 //=================================//
 // Test drive page logic
 //=================================//
@@ -203,6 +282,13 @@ function motoshop_dynamic_meta_description() {
     if ( is_front_page() || is_home() ) {
         // Front page or Blog main page
         $description = get_bloginfo( 'description' ) ?: 'Explore premium motorcycles, high-performance protective gear, and workshop services at MotoShop.';
+    } elseif ( function_exists( 'is_shop' ) && is_shop() ) {
+        // WooCommerce main shop page
+        $description = 'Browse our selection of modern motorcycles, helmets, jackets, riding boots, and replacement parts at MotoShop.';
+    } elseif ( function_exists( 'is_product_category' ) && is_product_category() ) {
+        // Product category pages
+        $term_desc = term_description();
+        $description = ! empty( $term_desc ) ? $term_desc : 'Shop ' . single_term_title( '', false ) . ' designed for rider safety and durability at MotoShop.';
     } elseif ( is_singular() ) {
         // Regular single posts, pages (Contact, Sustainability, Test Ride, etc.)
         global $post;
