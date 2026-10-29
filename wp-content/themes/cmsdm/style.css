@@ -1937,6 +1937,71 @@ main#main-content {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .category-collapsible summary.widget-title {
+        pointer-events: auto;
+        cursor: pointer;
+        margin-bottom: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .category-collapsible .toggle-icon {
+        display: inline-block;
+        font-size: 0.85rem;
+        color: #e11d48;
+        transition: transform 0.2s ease;
+    }
+
+    .category-collapsible[open] summary.widget-title {
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #e11d48;
+        padding-bottom: 0.5rem;
+    }
+
+    .category-collapsible[open] .toggle-icon {
+        transform: rotate(180deg);
+    }
+
+    .shop-sidebar .product-categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .shop-sidebar .product-categories > li {
+        margin-bottom: 0;
+    }
+}
+
+/* Tablets (<= 900px) */
+@media (max-width: 900px) {
+    .shop-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .shop-sidebar {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        background: #f9fafb;
+    }
+
+    .woocommerce .woocommerce-result-count {
+        float: none;
+        margin-bottom: 1rem;
+    }
+
+    .woocommerce .woocommerce-ordering {
+        float: none;
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .woocommerce .woocommerce-ordering select.orderby {
+        width: 100%;
+    }
+
 }
 
 /* Mobile Devices (<= 768px) */
@@ -2028,6 +2093,36 @@ main#main-content {
     .hero-image {
         height: 320px;
         order: -1;
+    }
+
+    .shop-main {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .shop-sidebar .product-categories {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .shop-sidebar ul.children li a {
+        min-height: 40px;
+    }
+
+    .woocommerce ul.products {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .woocommerce ul.products li.product {
+        padding: 1rem;
+    }
+
+    .woocommerce ul.products li.product img {
+        height: 200px;
+    }
+
+    .woocommerce ul.products li.product .button {
+        width: 100%;
     }
 
     .test-ride-page {
