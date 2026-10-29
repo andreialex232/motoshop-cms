@@ -2370,6 +2370,387 @@ body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
 ================================================== */
 
 /* ==================================================
+   WOOCOMMERCE CHECKOUT PAGE (BLOCKS)
+================================================== */
+/* 1. Page Bounds & Spacing */
+.woocommerce-checkout .entry-content,
+.woocommerce-checkout main,
+.wc-block-checkout {
+    max-width: 1200px !important;
+    margin: 2.5rem auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+.woocommerce-checkout h1.entry-title,
+.woocommerce-checkout .wc-block-checkout__title {
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-bottom: 2rem !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* 2. Express Checkout Box (Top) */
+.wc-block-components-express-checkout {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    background: #ffffff !important;
+}
+
+.wc-block-components-express-checkout-continue-rule {
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* 3. Section Titles */
+.wc-block-components-title,
+.wc-block-checkout__step h2 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 1.25rem !important;
+}
+
+/* 4. Address Form Fields & Floating Labels (Scoped ONLY to Address Forms) */
+.wc-block-checkout__form .wc-block-components-text-input {
+    position: relative !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input input[type="text"],
+.wc-block-checkout__form .wc-block-components-text-input input[type="email"],
+.wc-block-checkout__form .wc-block-components-text-input input[type="tel"] {
+    height: 58px !important;
+    padding: 1.4rem 1rem 0.35rem 1rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #0f172a !important;
+    line-height: 1.2 !important;
+    border: 1.5px solid #d1d5db !important;
+    border-radius: 8px !important;
+    background-color: #ffffff !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.wc-block-checkout__form .wc-block-components-combobox .wc-block-components-combobox__input,
+.wc-block-checkout__form .wc-block-components-select select {
+    height: 58px !important;
+    padding: 1.4rem 1rem 0.35rem 1rem !important;
+    border: 1.5px solid #d1d5db !important;
+    border-radius: 8px !important;
+    font-size: 0.95rem !important;
+    color: #0f172a !important;
+    box-sizing: border-box !important;
+    background-color: #ffffff !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input label,
+.wc-block-checkout__form .wc-block-components-combobox label,
+.wc-block-checkout__form .wc-block-components-select label {
+    position: absolute !important;
+    left: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 0.95rem !important;
+    color: #64748b !important;
+    pointer-events: none !important;
+    transition: all 0.15s ease-out !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input.is-active label,
+.wc-block-checkout__form .wc-block-components-combobox.is-active label,
+.wc-block-checkout__form .wc-block-components-select.is-active label,
+.wc-block-checkout__form .wc-block-components-text-input:focus-within label,
+.wc-block-checkout__form .wc-block-components-combobox:focus-within label,
+.wc-block-checkout__form .wc-block-components-select:focus-within label {
+    top: 0.55rem !important;
+    transform: none !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    color: #e11d48 !important;
+    letter-spacing: 0.03em !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input input:focus,
+.wc-block-checkout__form .wc-block-components-combobox input:focus,
+.wc-block-checkout__form .wc-block-components-select select:focus {
+    border-color: #e11d48 !important;
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.12) !important;
+    outline: none !important;
+}
+
+/* 6. Right Sidebar: Order Summary Card */
+.wc-block-checkout__sidebar {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Style the actual white summary card */
+.wp-block-woocommerce-checkout-order-summary-block {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 1.75rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+    box-sizing: border-box !important;
+}
+
+/* Header bar */
+.wc-block-components-order-summary__header {
+    border-bottom: 2px solid #e11d48 !important;
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.wc-block-components-order-summary__title {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Fix product image sizing and bike proportions */
+.wc-block-components-order-summary-item__image {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    background-color: #f8fafc !important;
+    padding: 4px !important;
+    box-sizing: border-box !important;
+}
+
+.wc-block-components-order-summary-item__image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Quantity badge */
+.wc-block-components-order-summary-item__quantity {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* HIDE the product description completely */
+.wc-block-components-order-summary-item .wc-block-components-product-metadata,
+.wc-block-components-order-summary-item__description p,
+.wc-block-components-product-metadata__description,
+.wc-block-components-product-details__short-description {
+    display: none !important;
+}
+
+/* Total Price Highlight at the bottom */
+.wc-block-components-totals-footer-item {
+    border-top: 2px solid #e5e7eb !important;
+    padding-top: 1.25rem !important;
+    margin-top: 1rem !important;
+}
+
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+    color: #e11d48 !important;
+    font-size: 1.45rem !important;
+    font-weight: 800 !important;
+}
+
+/* 7. Place Order Button & Controls */
+.wc-block-checkout__actions button[type="submit"],
+.wc-block-components-checkout-place-order-button {
+    background-color: #e11d48 !important;
+    color: #ffffff !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 1rem 2rem !important;
+    min-height: 52px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 6px -1px rgba(225, 29, 72, 0.25) !important;
+    transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.wc-block-checkout__actions button[type="submit"]:hover,
+.wc-block-components-checkout-place-order-button:hover {
+    background-color: #be123c !important;
+    transform: translateY(-1px) !important;
+}
+
+.wc-block-components-checkbox input[type="checkbox"]:checked {
+    background-color: #e11d48 !important;
+    border-color: #e11d48 !important;
+}
+
+/* Hide individual line-item total price in the summary */
+.wc-block-components-order-summary-item__total-price {
+    display: none !important;
+}
+/* ==================================================
+   WOOCOMMERCE CHECKOUT PAGE END (BLOCKS)
+================================================== */
+
+/* ==================================================
+   ORDER RECEIVED (THANK YOU) PAGE
+================================================== */
+/* 1. Page Bounds */
+.woocommerce-order-received .entry-content,
+.woocommerce-order-received main {
+    max-width: 1000px !important;
+    margin: 2.5rem auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Success Banner Header */
+.woocommerce-order-received h1.entry-title,
+.woocommerce-order-received .woocommerce-notice--success {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.woocommerce-order-received .woocommerce-notice--success {
+    background-color: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+    color: #166534 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    padding: 1rem 1.25rem !important;
+    border-radius: 10px !important;
+    margin-bottom: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 3. Horizontal Meta Bar (Order #, Date, Total, Payment Method) */
+ul.woocommerce-order-overview {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    padding: 1.25rem 1.5rem !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    list-style: none !important;
+    margin: 0 0 2.5rem 0 !important;
+}
+
+ul.woocommerce-order-overview li {
+    flex: 1 1 180px !important;
+    border-right: 1px solid #e2e8f0 !important;
+    padding-right: 1rem !important;
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    color: #64748b !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 600 !important;
+}
+
+ul.woocommerce-order-overview li:last-child {
+    border-right: none !important;
+}
+
+ul.woocommerce-order-overview li strong {
+    display: block !important;
+    font-size: 1.05rem !important;
+    color: #0f172a !important;
+    text-transform: none !important;
+    font-weight: 700 !important;
+    margin-top: 4px !important;
+}
+
+/* 4. Order Details Card & Table */
+.woocommerce-order-details {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 1.75rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.woocommerce-order-details__title {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-bottom: 1.25rem !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 2px solid #e11d48 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.woocommerce-table--order-details {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: none !important;
+}
+
+.woocommerce-table--order-details th,
+.woocommerce-table--order-details td {
+    padding: 1rem 0.5rem !important;
+    border: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    color: #334155 !important;
+}
+
+.woocommerce-table--order-details thead th {
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #64748b !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.woocommerce-table--order-details .product-name {
+    font-weight: 600 !important;
+    color: #0f172a !important;
+}
+
+.woocommerce-table--order-details .product-total,
+.woocommerce-table--order-details tfoot td {
+    text-align: right !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+}
+
+.woocommerce-table--order-details tfoot th {
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    color: #64748b !important;
+    font-weight: 600 !important;
+}
+
+/* Highlight Final Total Row */
+.woocommerce-table--order-details tfoot tr:last-child th,
+.woocommerce-table--order-details tfoot tr:last-child td {
+    border-top: 2px solid #e2e8f0 !important;
+    border-bottom: none !important;
+    padding-top: 1.25rem !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+}
+
+.woocommerce-table--order-details tfoot tr:last-child td {
+    color: #e11d48 !important;
+}
+
+/* ==================================================
    SUSTAINABILITY PAGE
 ================================================== */
 .sustainability-page {
@@ -2548,6 +2929,10 @@ body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
 
     .testimonial-items {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wc-block-checkout__sidebar {
+        display: none !important;
     }
 
     .category-collapsible summary.widget-title {
