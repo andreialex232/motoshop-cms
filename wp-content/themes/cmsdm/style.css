@@ -2615,6 +2615,31 @@ body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
         width: 100%;
     }
 
+    /* Cart Tablet/Mobile Stack */
+    .woocommerce-cart .woocommerce {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    .woocommerce-cart form.woocommerce-cart-form,
+    .woocommerce-cart .cart-collaterals {
+        grid-column: auto !important;
+        width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+
+    .woocommerce-cart .wp-block-woocommerce-cart {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .woocommerce-cart .wp-block-woocommerce-cart-order-summary-block,
+    .woocommerce-cart .wc-block-cart__sidebar {
+        grid-column: 1 !important;
+        margin-top: 1rem !important;
+    }
+
 }
 
 /* Mobile Devices (<= 768px) */
@@ -2631,6 +2656,25 @@ body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
     /* Keep right actions grouped tightly on the top row */
     .header-right {
         gap: 0.5rem;
+    }
+
+    /* Hide text labels; keep accessible 44x44 icon buttons */
+    .account a span,
+    .cart a span {
+        display: none;
+    }
+
+    .account a,
+    .cart a {
+        padding: 0.5rem;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+    }
+
+    .account a svg,
+    .cart a svg {
+        font-size: 1.4rem;
     }
 
     /* Mobile Hamburger */
@@ -2735,6 +2779,107 @@ body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
     }
 
     .woocommerce ul.products li.product .button {
+        width: 100%;
+    }
+
+    /* WooCommerce Cart Mobile Optimization */
+    .woocommerce-cart .entry-content,
+    .woocommerce-cart main {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .woocommerce-cart table.shop_table {
+        display: block;
+        width: 100%;
+        border: none;
+    }
+
+    .woocommerce-cart table.shop_table thead {
+        display: none;
+    }
+
+    .woocommerce-cart table.shop_table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .woocommerce-cart table.shop_table tr.cart_item {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+        background: #ffffff;
+    }
+
+    .woocommerce-cart table.shop_table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border: none;
+        width: 100%;
+    }
+
+    .woocommerce-cart table.shop_table td.product-remove {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: auto;
+        padding: 0;
+    }
+
+    .woocommerce-cart table.shop_table td.product-thumbnail {
+        justify-content: center;
+        padding-bottom: 0.75rem;
+    }
+
+    .woocommerce-cart table.shop_table td.product-thumbnail img {
+        width: 100px;
+        height: auto;
+    }
+
+    .woocommerce-cart table.shop_table td.product-name {
+        font-size: 1.05rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .woocommerce-cart table.shop_table td.actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.5rem 0 1.5rem 0;
+        width: 100%;
+    }
+
+    .woocommerce-cart table.shop_table td.actions .coupon {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        float: none;
+    }
+
+    .woocommerce-cart table.shop_table td.actions .coupon input.input-text {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .woocommerce-cart table.shop_table td.actions .coupon button.button,
+    .woocommerce-cart table.shop_table td.actions button[name="update_cart"] {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .woocommerce-cart .cart-collaterals .cart_totals {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+        min-height: 48px;
         width: 100%;
     }
 
