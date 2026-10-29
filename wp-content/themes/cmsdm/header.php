@@ -6,6 +6,8 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+<?php wp_body_open(); ?>
 
 <header class="site-header">
     <div class="logo">
