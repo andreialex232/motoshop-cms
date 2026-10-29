@@ -184,6 +184,15 @@ add_filter( 'wp_list_categories', function( $output, $args ) {
     return $output;
 }, 99, 2 );
 
+// Fix for ARIA issue in siteimprove addon
+add_filter( 'woocommerce_pagination_args', function( $args ) {
+    return $args;
+});
+
+add_filter( 'paginate_links_output', function( $html ) {
+    return preg_replace( '/(<span[^>]*?)\saria-label="[^"]*"([^>]*?>)/i', '$1$2', $html );
+}, 20 );
+
 //=================================//
 // Test drive page logic
 //=================================//
