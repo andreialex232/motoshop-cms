@@ -91,6 +91,8 @@ get_header();
                     }
 
                     $avatar     = get_field("testimonial_{$i}_avatar");
+                    $raw_rating = (int) get_field("testimonial_{$i}_rating");
+                    $rating     = max(1, min(5, $raw_rating ?: 5));
                     $quote      = get_field("testimonial_{$i}_quote");
                 ?>
                     <div class="testimonial-item">
@@ -103,6 +105,7 @@ get_header();
 
                             <div class="testimonial-meta">
                                 <h3 class="testimonial-author"><?php echo esc_html($name); ?></h3>
+                                <div class="testimonial-stars" aria-label="<?php echo esc_attr("Rating: {$rating} out of 5 stars"); ?>"><?php echo esc_html(str_repeat('★', $rating)); ?></div>
                             </div>
                         </div>
 
