@@ -427,6 +427,78 @@ main#main-content {
 /* FRONT PAGE END */
 
 /* ==================================================
+   SINGLE BLOG POST
+================================================== */
+.single-post-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    font-size: 2.5rem;
+    line-height: 1.25;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+.post-meta {
+    font-size: 13px;
+    color: #6b7280;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.post-featured-image {
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.post-featured-image img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+}
+
+.post-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #374151;
+}
+
+.post-content h2,
+.post-content h3 {
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.post-content ul,
+.post-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* ==================================================
    SUSTAINABILITY PAGE
 ================================================== */
 .sustainability-page {
