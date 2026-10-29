@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleBtn.setAttribute('aria-label', isOpen ? 'Close main menu' : 'Open main menu');
         });
 
+        // Close on Escape key (WCAG Best Practice)
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+                navMenu.classList.remove('is-open');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                toggleBtn.setAttribute('aria-label', 'Open main menu');
+                toggleBtn.focus();
+            }
+        });
     }
 
     // test drive page logic
