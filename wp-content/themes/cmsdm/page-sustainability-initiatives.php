@@ -3,6 +3,9 @@
  * Template Name: Sustainability Page
  */
 
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 get_header(); 
 ?>

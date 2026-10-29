@@ -3,6 +3,9 @@
  * Template Name: Contact Page
  */
 
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 get_header(); 
 ?>

@@ -4,6 +4,9 @@
  * Description: Multi-step interactive motorcycle test ride booking form.
  */
 
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 get_header(); 
 ?>
