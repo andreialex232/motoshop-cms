@@ -590,6 +590,10 @@ main#main-content {
         gap: 2rem;
     }
 
+    .testimonial-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
 /* Mobile Devices (<= 768px) */
@@ -681,6 +685,10 @@ main#main-content {
     .hero-image {
         height: 320px;
         order: -1;
+    }
+
+    .testimonial-items {
+        grid-template-columns: 1fr;
     }
 
     .sustainability-hero {
