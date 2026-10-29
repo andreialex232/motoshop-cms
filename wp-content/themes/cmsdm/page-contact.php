@@ -62,6 +62,19 @@ get_header();
         </div>
     </section>
 
+    <!-- Showroom video section -->
+    <section class="showroom-video-section">
+        <div class="showroom-video-container">
+            <span class="showroom-subtitle">Take A Tour</span>
+            <h2>Explore Our Showroom</h2>
+            <p>Take a virtual walk through our dealership and check out our latest motorcycles and riding gear.</p>
+            
+            <div class="showroom-video-wrapper">
+                <iframe src="https://www.youtube.com/embed/AehjuE4ari4?si=QPfbCjzMYdqvkuD_" title="Showroom Tour" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <?php get_footer(); ?>
