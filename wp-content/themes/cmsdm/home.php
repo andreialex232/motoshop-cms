@@ -41,6 +41,16 @@ get_header();
 
                 <?php endwhile; ?>
 
+                <div class="blog-pagination">
+                    <?php
+                    the_posts_pagination(array(
+                        'mid_size'  => 2,
+                        'prev_text' => __('&larr; Previous', 'cmsdm'),
+                        'next_text' => __('Next &rarr;', 'cmsdm'),
+                    ));
+                    ?>
+                </div>
+
             <?php else : ?>
                 <p><?php echo esc_html__('No posts found.', 'cmsdm'); ?></p>
             <?php endif; ?>
