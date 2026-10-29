@@ -523,6 +523,80 @@ main#main-content {
     align-items: start;
 }
 
+/* Shop Discount Banner */
+.shop-promo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff1f2;
+    border: 1.5px solid #fecdd3;
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    margin-bottom: 2rem;
+    color: #881337;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.promo-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.promo-tag {
+    background-color: #9f1239;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+}
+
+.shop-promo-banner p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #881337;
+}
+
+.promo-code {
+    background: #ffffff;
+    border: 1px dashed #9f1239;
+    color: #9f1239;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.promo-close {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #881337;
+    cursor: pointer;
+    padding: 0;
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.promo-close:hover {
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Breadcrumbs & Result Count (Darkened to >= 7:1) */
 .woocommerce .woocommerce-breadcrumb {
     margin-bottom: 1.5rem;
