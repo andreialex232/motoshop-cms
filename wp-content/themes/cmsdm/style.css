@@ -2370,6 +2370,125 @@ body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
 ================================================== */
 
 /* ==================================================
+   WOOCOMMERCE CHECKOUT PAGE (BLOCKS)
+================================================== */
+/* 1. Page Bounds & Spacing */
+.woocommerce-checkout .entry-content,
+.woocommerce-checkout main,
+.wc-block-checkout {
+    max-width: 1200px !important;
+    margin: 2.5rem auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+.woocommerce-checkout h1.entry-title,
+.woocommerce-checkout .wc-block-checkout__title {
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-bottom: 2rem !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* 2. Express Checkout Box (Top) */
+.wc-block-components-express-checkout {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    background: #ffffff !important;
+}
+
+.wc-block-components-express-checkout-continue-rule {
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* 3. Section Titles */
+.wc-block-components-title,
+.wc-block-checkout__step h2 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 1.25rem !important;
+}
+
+/* 4. Address Form Fields & Floating Labels (Scoped ONLY to Address Forms) */
+.wc-block-checkout__form .wc-block-components-text-input {
+    position: relative !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input input[type="text"],
+.wc-block-checkout__form .wc-block-components-text-input input[type="email"],
+.wc-block-checkout__form .wc-block-components-text-input input[type="tel"] {
+    height: 58px !important;
+    padding: 1.4rem 1rem 0.35rem 1rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #0f172a !important;
+    line-height: 1.2 !important;
+    border: 1.5px solid #d1d5db !important;
+    border-radius: 8px !important;
+    background-color: #ffffff !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.wc-block-checkout__form .wc-block-components-combobox .wc-block-components-combobox__input,
+.wc-block-checkout__form .wc-block-components-select select {
+    height: 58px !important;
+    padding: 1.4rem 1rem 0.35rem 1rem !important;
+    border: 1.5px solid #d1d5db !important;
+    border-radius: 8px !important;
+    font-size: 0.95rem !important;
+    color: #0f172a !important;
+    box-sizing: border-box !important;
+    background-color: #ffffff !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input label,
+.wc-block-checkout__form .wc-block-components-combobox label,
+.wc-block-checkout__form .wc-block-components-select label {
+    position: absolute !important;
+    left: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 0.95rem !important;
+    color: #64748b !important;
+    pointer-events: none !important;
+    transition: all 0.15s ease-out !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input.is-active label,
+.wc-block-checkout__form .wc-block-components-combobox.is-active label,
+.wc-block-checkout__form .wc-block-components-select.is-active label,
+.wc-block-checkout__form .wc-block-components-text-input:focus-within label,
+.wc-block-checkout__form .wc-block-components-combobox:focus-within label,
+.wc-block-checkout__form .wc-block-components-select:focus-within label {
+    top: 0.55rem !important;
+    transform: none !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    color: #e11d48 !important;
+    letter-spacing: 0.03em !important;
+}
+
+.wc-block-checkout__form .wc-block-components-text-input input:focus,
+.wc-block-checkout__form .wc-block-components-combobox input:focus,
+.wc-block-checkout__form .wc-block-components-select select:focus {
+    border-color: #e11d48 !important;
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.12) !important;
+    outline: none !important;
+}
+
+/* ==================================================
    SUSTAINABILITY PAGE
 ================================================== */
 .sustainability-page {
