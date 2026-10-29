@@ -8,6 +8,14 @@
             </a>
         </div>
 
+        <!-- second col -->
+        <div class="footer-col">
+            <h2>Information</h2>
+            <ul>
+                <li><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact</a></li>
+            </ul>
+        </div>
+
         <!-- third col -->
         <div class="footer-col footer-socials">
             <h2>Social media</h2>

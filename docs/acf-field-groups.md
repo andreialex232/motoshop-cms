@@ -38,3 +38,12 @@ file documents what the templates expect. Field names must match exactly.
 Tip: create the three testimonials in one field group and use conditional logic on the `_active` switch so
 editors only see the fields of testimonials that are switched on.
 
+## Contact page (`page-contact.php`, page template "Contact Page")
+
+| Field name | Type | Used for |
+| --- | --- | --- |
+| `hours_mon_fri` | Text | Opening hours line, default "Monday - Friday: 9 AM - 6 PM" |
+| `hours_saturday` | Text | Opening hours line, default "Saturday: 10 AM - 4 PM" |
+| `hours_sunday` | Text | Opening hours line, default "Sunday: Closed" |
+| `storefront_image` | Image (return format: URL) | Photo of the showroom |
+| `storefront_caption` | Text | Caption and alt text for the photo |
