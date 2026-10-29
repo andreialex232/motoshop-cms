@@ -28,6 +28,15 @@ get_header();
                 <?php the_content(); ?>
             </div>
 
+            <!-- Comment section -->
+            <section class="post-comments">
+                <?php
+                if (comments_open() || get_comments_number()) :
+                    comments_template();
+                endif;
+                ?>
+            </section>
+
         <?php endwhile; ?>
     </article>
 </main>
