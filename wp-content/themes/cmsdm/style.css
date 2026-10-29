@@ -3215,6 +3215,47 @@ ul.woocommerce-order-overview li strong {
     border-color: #fca5a5 !important;
 }
 
+/* Stack heading and edit link, left-aligned */
+.woocommerce-account .woocommerce-Address-title.title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.35rem !important;
+}
+
+.woocommerce-account .woocommerce-Address-title.title a.edit {
+    float: none !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* ACCOUNT DETAILS: PASSWORD CHANGE SECTION */
+
+/* Remove browser default fieldset box and reset padding/margin */
+.woocommerce-EditAccountForm fieldset {
+    border: none !important;
+    padding: 0 !important;
+    margin: 2rem 0 0 0 !important;
+}
+
+/* Style the legend like a clear heading */
+.woocommerce-EditAccountForm fieldset legend {
+    float: none !important;
+    display: block !important;
+    width: 100% !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 1.25rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* Ensure consistent spacing between the password rows */
+.woocommerce-EditAccountForm fieldset p.woocommerce-form-row {
+    margin-bottom: 1.25rem !important;
+}
+
 /* ==================================================
    RESPONSIVE BREAKPOINTS
 ================================================== */
