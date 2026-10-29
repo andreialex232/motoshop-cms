@@ -82,14 +82,30 @@ get_header();
 
             <div class="testimonial-items">
                 <?php for ($i = 1; $i <= 3; $i++) : 
+                    $is_active = get_field("testimonial_{$i}_active");
                     $name      = get_field("testimonial_{$i}_name");
 
+                    // If toggle is OFF or name is empty, skip review
+                    if (!$is_active || empty($name)) {
+                        continue;
+                    }
+
+                    $avatar     = get_field("testimonial_{$i}_avatar");
+                    $raw_rating = (int) get_field("testimonial_{$i}_rating");
+                    $rating     = max(1, min(5, $raw_rating ?: 5));
                     $quote      = get_field("testimonial_{$i}_quote");
                 ?>
                     <div class="testimonial-item">
                         <div class="testimonial-header">
+                            <?php if ($avatar) : ?>
+                                <div class="testimonial-avatar">
+                                    <img src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($name); ?>">
+                                </div>
+                            <?php endif; ?>
+
                             <div class="testimonial-meta">
                                 <h3 class="testimonial-author"><?php echo esc_html($name); ?></h3>
+                                <div class="testimonial-stars" aria-label="<?php echo esc_attr("Rating: {$rating} out of 5 stars"); ?>"><?php echo esc_html(str_repeat('★', $rating)); ?></div>
                             </div>
                         </div>
 

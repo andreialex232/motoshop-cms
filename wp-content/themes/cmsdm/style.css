@@ -405,6 +405,24 @@ main#main-content {
     gap: 1rem;
 }
 
+.testimonial-avatar img,
+.avatar-placeholder {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    background: #111827;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
 .testimonial-meta {
     display: flex;
     flex-direction: column;
@@ -416,6 +434,12 @@ main#main-content {
     font-size: 1.05rem;
     font-weight: 600;
     color: #111827;
+}
+
+.testimonial-stars {
+    color: #f59e0b;
+    font-size: 1rem;
+    letter-spacing: 2px;
 }
 
 .testimonial-quote {
