@@ -171,3 +171,38 @@ add_action( 'admin_post_nopriv_submit_test_ride', 'cmsdm_handle_test_ride' );
 add_action( 'admin_post_submit_test_ride', 'cmsdm_handle_test_ride' );
 
 
+/**
+ * Global dynamic meta description generator for SEO across all templates
+ */
+function motoshop_dynamic_meta_description() {
+    $description = '';
+
+    if ( is_front_page() || is_home() ) {
+        // Front page or Blog main page
+        $description = get_bloginfo( 'description' ) ?: 'Explore premium motorcycles, high-performance protective gear, and workshop services at MotoShop.';
+    } elseif ( is_singular() ) {
+        // Regular single posts, pages (Contact, Sustainability, Test Ride, etc.)
+        global $post;
+        if ( ! empty( $post->post_excerpt ) ) {
+            $description = $post->post_excerpt;
+        } else {
+            $description = wp_trim_words( $post->post_content, 25 );
+        }
+    } elseif ( is_archive() ) {
+        // Blog archives
+        $description = get_the_archive_description() ?: 'Browse articles and updates from the MotoShop motorcycle journal.';
+    }
+
+    // Site-wide fallback if content was completely blank
+    if ( empty( trim( $description ) ) ) {
+        $description = get_bloginfo( 'description' ) ?: 'MotoShop - Precision-tuned motorcycles and tested rider gear.';
+    }
+
+    // Strip HTML tags, remove redundant whitespace, and cap at 160 characters
+    $clean_desc = wp_strip_all_tags( $description );
+    $clean_desc = mb_substr( trim( preg_replace( '/\s+/', ' ', $clean_desc ) ), 0, 160 );
+
+    echo '<meta name="description" content="' . esc_attr( $clean_desc ) . '">' . "\n";
+}
+add_action( 'wp_head', 'motoshop_dynamic_meta_description', 1 );
+
