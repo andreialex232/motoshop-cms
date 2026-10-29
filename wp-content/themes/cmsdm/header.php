@@ -3,6 +3,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+$cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -35,6 +36,19 @@ if (!defined('ABSPATH')) {
 
     <!-- Header Right Controls -->
     <div class="header-right">
+        <!-- Cart Link -->
+        <div class="cart">
+            <a href="<?php echo esc_url($cart_url); ?>" aria-label="Shopping Cart">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+                    <path d="M0 0h32v32H0z" fill="none" />
+                    <circle cx="10" cy="28" r="2" fill="currentColor" />
+                    <circle cx="24" cy="28" r="2" fill="currentColor" />
+                    <path fill="currentColor" d="M28 7H5.82L5 2.8A1 1 0 0 0 4 2H0v2h3.18L7 23.2a1 1 0 0 0 1 .8h18v-2H8.82L8 18h18a1 1 0 0 0 1-.78l2-9A1 1 0 0 0 28 7m-2.8 9H7.62l-1.4-7h20.53Z" />
+                </svg>
+                <span>Cart</span>
+            </a>
+        </div>
+
         <!-- Accessible Hamburger Toggle Button -->
         <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Open main menu">
             <span class="hamburger-bar"></span>

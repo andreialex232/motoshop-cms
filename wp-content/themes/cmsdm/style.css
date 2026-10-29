@@ -106,6 +106,41 @@ main#main-content {
     gap: 1.25rem;
 }
 
+/* Account & Cart Shared Link Styling */
+.account a,
+.cart a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;            
+    text-decoration: none;   
+    color: #1a1a1a;          
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: opacity 0.2s ease;
+    min-height: 44px; /* WCAG 2.5.8 compliant target size */
+    padding: 0.25rem 0.5rem;
+}
+
+.account a svg,
+.cart a svg {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.account a:hover,
+.cart a:hover {
+    color: #1a1a1a;          
+    opacity: 0.75;           
+    text-decoration: none;
+}
+
+.account a:focus-visible,
+.cart a:focus-visible {
+    outline: 2px solid #00F5FF;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 /* 4. Hamburger Button (Hidden on Desktop) */
 .menu-toggle {
     display: none;
