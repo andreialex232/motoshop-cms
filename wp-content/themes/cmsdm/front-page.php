@@ -90,10 +90,17 @@ get_header();
                         continue;
                     }
 
+                    $avatar     = get_field("testimonial_{$i}_avatar");
                     $quote      = get_field("testimonial_{$i}_quote");
                 ?>
                     <div class="testimonial-item">
                         <div class="testimonial-header">
+                            <?php if ($avatar) : ?>
+                                <div class="testimonial-avatar">
+                                    <img src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($name); ?>">
+                                </div>
+                            <?php endif; ?>
+
                             <div class="testimonial-meta">
                                 <h3 class="testimonial-author"><?php echo esc_html($name); ?></h3>
                             </div>
