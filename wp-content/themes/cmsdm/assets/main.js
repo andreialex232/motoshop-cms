@@ -23,6 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // closing of the promocode banner
+    const promoBanner = document.querySelector('.shop-promo-banner');
+    if (promoBanner) {
+        const closeBtn = promoBanner.querySelector('.promo-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                promoBanner.style.display = 'none';
+            });
+        }
+    }
+
     // category filter on webshop collapses when opened under 1024px width screen
     if (window.innerWidth <= 1024) {
         document.querySelectorAll('.category-collapsible').forEach(el => el.removeAttribute('open'));

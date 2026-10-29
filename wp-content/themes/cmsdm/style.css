@@ -106,6 +106,41 @@ main#main-content {
     gap: 1.25rem;
 }
 
+/* Account & Cart Shared Link Styling */
+.account a,
+.cart a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;            
+    text-decoration: none;   
+    color: #1a1a1a;          
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: opacity 0.2s ease;
+    min-height: 44px; /* WCAG 2.5.8 compliant target size */
+    padding: 0.25rem 0.5rem;
+}
+
+.account a svg,
+.cart a svg {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.account a:hover,
+.cart a:hover {
+    color: #1a1a1a;          
+    opacity: 0.75;           
+    text-decoration: none;
+}
+
+.account a:focus-visible,
+.cart a:focus-visible {
+    outline: 2px solid #00F5FF;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 /* 4. Hamburger Button (Hidden on Desktop) */
 .menu-toggle {
     display: none;
@@ -486,6 +521,80 @@ main#main-content {
     grid-template-columns: 260px 1fr;
     gap: 2.5rem;
     align-items: start;
+}
+
+/* Shop Discount Banner */
+.shop-promo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff1f2;
+    border: 1.5px solid #fecdd3;
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    margin-bottom: 2rem;
+    color: #881337;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.promo-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.promo-tag {
+    background-color: #9f1239;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+}
+
+.shop-promo-banner p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #881337;
+}
+
+.promo-code {
+    background: #ffffff;
+    border: 1px dashed #9f1239;
+    color: #9f1239;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.promo-close {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #881337;
+    cursor: pointer;
+    padding: 0;
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.promo-close:hover {
+    opacity: 0.7;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Breadcrumbs & Result Count (Darkened to >= 7:1) */
@@ -1882,6 +1991,385 @@ body.woocommerce div.product span.onsale,
 /* CONTACT PAGE END */
 
 /* ==================================================
+   WOOCOMMERCE CART PAGE (BLOCKS & CLASSIC COMPATIBLE)
+================================================== */
+.woocommerce-cart .entry-content,
+.woocommerce-cart main {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.woocommerce-cart h1.entry-title,
+.woocommerce-cart h1.page-title,
+.woocommerce-cart h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2rem;
+}
+
+/* 1. Neutralize shop layout containers on the Cart page */
+body.woocommerce-cart .shop-container,
+body.woocommerce-cart .shop-layout,
+body.woocommerce-cart .shop-content-full,
+body.woocommerce-cart .woocommerce {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Page heading centered */
+body.woocommerce-cart h1.page-title,
+body.woocommerce-cart h1.entry-title,
+body.woocommerce-cart h1 {
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    text-align: center !important;
+    margin: 2.5rem 0 1.5rem 0 !important;
+}
+
+/* 2. Unified Card for Empty State */
+body.woocommerce-cart .cart-empty.woocommerce-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 3rem 2rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    color: #0f172a !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin: 0 auto 1.5rem auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Remove default blue bar and icon */
+body.woocommerce-cart .cart-empty.woocommerce-info::before {
+    display: none !important;
+}
+
+/* 3. Button Centered Below Card */
+body.woocommerce-cart .return-to-shop {
+    text-align: center !important;
+    margin: 0 0 3rem 0 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+body.woocommerce-cart .return-to-shop .button.wc-backward {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #9f1239 !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.85rem 2.25rem !important;
+    min-height: 48px !important;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+    box-shadow: 0 2px 4px rgba(159, 18, 57, 0.15) !important;
+}
+
+body.woocommerce-cart .return-to-shop .button.wc-backward:hover {
+    background-color: #881337 !important;
+    transform: translateY(-1px);
+}
+
+body.woocommerce-cart .return-to-shop .button.wc-backward:focus-visible {
+    outline: 2px solid #00F5FF !important;
+    outline-offset: 3px !important;
+}
+
+/* 2-Column Cart Layout for Desktop */
+.woocommerce-cart .woocommerce {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    align-items: start;
+    width: 100%;
+}
+
+/* 1. Left Column: Product Table */
+.woocommerce-cart form.woocommerce-cart-form {
+    grid-column: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+.woocommerce table.shop_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 2rem;
+}
+
+.woocommerce table.shop_table th {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    padding: 0 0 1rem 0;
+    border-bottom: 2px solid #e5e7eb;
+    border-top: none;
+}
+
+.woocommerce table.shop_table td {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    border-top: none;
+    vertical-align: middle;
+}
+
+/* Product Remove Button */
+.woocommerce table.shop_table td.product-remove a.remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 50%;
+    color: #94a3b8 !important;
+    font-size: 1.25rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.woocommerce table.shop_table td.product-remove a.remove:hover {
+    background-color: #fee2e2;
+    color: #e11d48 !important;
+}
+
+/* Thumbnail */
+.woocommerce table.shop_table td.product-thumbnail img {
+    width: 75px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    display: block;
+}
+
+/* Title & Price */
+.woocommerce table.shop_table td.product-name a {
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.woocommerce table.shop_table td.product-name a:hover {
+    color: #e11d48;
+}
+
+.woocommerce table.shop_table td.product-price,
+.woocommerce table.shop_table td.product-subtotal {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+/* Quantity input box */
+.woocommerce table.shop_table td.product-quantity .quantity input.qty {
+    width: 60px;
+    height: 44px;
+    text-align: center;
+    border: 1.5px solid #d1d5db;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Coupon & Update Cart Bar */
+.woocommerce table.shop_table td.actions {
+    padding-top: 1.5rem;
+}
+
+.woocommerce table.shop_table td.actions .coupon {
+    display: inline-flex;
+    gap: 0.5rem;
+    float: left;
+}
+
+.woocommerce table.shop_table td.actions .coupon input.input-text,
+.woocommerce-cart #coupon_code {
+    height: 44px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 6px;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+    width: 250px !important;
+    min-width: 240px !important;
+    box-sizing: border-box;
+}
+
+.woocommerce table.shop_table td.actions .coupon button.button,
+.woocommerce table.shop_table td.actions button[name="update_cart"] {
+    background: #f1f5f9 !important;
+    color: #1f2937 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px;
+    min-height: 44px;
+    height: 44px;
+    padding: 0 1.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.woocommerce table.shop_table td.actions .coupon button.button:hover,
+.woocommerce table.shop_table td.actions button[name="update_cart"]:hover {
+    background: #e2e8f0 !important;
+}
+
+/* 2. Right Column: Cart Totals Box */
+.woocommerce-cart .cart-collaterals {
+    grid-column: 2;
+    width: 100%;
+    min-width: 0;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals {
+    float: none !important;
+    width: 100% !important;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.woocommerce-cart .cart_totals h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1.25rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e11d48;
+}
+
+.woocommerce-cart .cart_totals table.shop_table {
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-cart .cart_totals table.shop_table th {
+    border: none;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 0.95rem;
+    padding: 0.75rem 0;
+}
+
+.woocommerce-cart .cart_totals table.shop_table td {
+    border: none;
+    text-align: right;
+    font-size: 0.95rem;
+    padding: 0.75rem 0;
+}
+
+/* Coupon [Remove] Button Badge */
+.woocommerce-cart .cart_totals .woocommerce-remove-coupon {
+    font-size: 0 !important; /* Hides default brackets and text */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 0.5rem !important;
+    padding: 0.25rem 0.65rem !important;
+    background-color: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    vertical-align: middle !important;
+    transition: all 0.2s ease !important;
+}
+
+.woocommerce-cart .cart_totals .woocommerce-remove-coupon::after {
+    content: "Remove" !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+}
+
+.woocommerce-cart .cart_totals .woocommerce-remove-coupon:hover {
+    background-color: #fee2e2 !important;
+    border-color: #fecdd3 !important;
+}
+
+.woocommerce-cart .cart_totals .woocommerce-remove-coupon:hover::after {
+    color: #e11d48 !important;
+}
+
+.woocommerce-cart .cart_totals table.shop_table tr.order-total th,
+.woocommerce-cart .cart_totals table.shop_table tr.order-total td {
+    border-top: 2px solid #e5e7eb;
+    padding-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.woocommerce-cart .cart_totals table.shop_table tr.order-total td strong {
+    color: #e11d48;
+}
+
+/* Proceed to Checkout Button */
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #e11d48 !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 0.9rem 1.25rem;
+    min-height: 48px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(225, 29, 72, 0.25);
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    box-sizing: border-box;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover {
+    background-color: #be123c !important;
+    transform: translateY(-1px);
+}
+/* ==================================================
+   WOOCOMMERCE CART PAGE END
+================================================== */
+
+/* ==================================================
    SUSTAINABILITY PAGE
 ================================================== */
 .sustainability-page {
@@ -2127,6 +2615,31 @@ body.woocommerce div.product span.onsale,
         width: 100%;
     }
 
+    /* Cart Tablet/Mobile Stack */
+    .woocommerce-cart .woocommerce {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    .woocommerce-cart form.woocommerce-cart-form,
+    .woocommerce-cart .cart-collaterals {
+        grid-column: auto !important;
+        width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+
+    .woocommerce-cart .wp-block-woocommerce-cart {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .woocommerce-cart .wp-block-woocommerce-cart-order-summary-block,
+    .woocommerce-cart .wc-block-cart__sidebar {
+        grid-column: 1 !important;
+        margin-top: 1rem !important;
+    }
+
 }
 
 /* Mobile Devices (<= 768px) */
@@ -2143,6 +2656,25 @@ body.woocommerce div.product span.onsale,
     /* Keep right actions grouped tightly on the top row */
     .header-right {
         gap: 0.5rem;
+    }
+
+    /* Hide text labels; keep accessible 44x44 icon buttons */
+    .account a span,
+    .cart a span {
+        display: none;
+    }
+
+    .account a,
+    .cart a {
+        padding: 0.5rem;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+    }
+
+    .account a svg,
+    .cart a svg {
+        font-size: 1.4rem;
     }
 
     /* Mobile Hamburger */
@@ -2247,6 +2779,107 @@ body.woocommerce div.product span.onsale,
     }
 
     .woocommerce ul.products li.product .button {
+        width: 100%;
+    }
+
+    /* WooCommerce Cart Mobile Optimization */
+    .woocommerce-cart .entry-content,
+    .woocommerce-cart main {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .woocommerce-cart table.shop_table {
+        display: block;
+        width: 100%;
+        border: none;
+    }
+
+    .woocommerce-cart table.shop_table thead {
+        display: none;
+    }
+
+    .woocommerce-cart table.shop_table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .woocommerce-cart table.shop_table tr.cart_item {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+        background: #ffffff;
+    }
+
+    .woocommerce-cart table.shop_table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border: none;
+        width: 100%;
+    }
+
+    .woocommerce-cart table.shop_table td.product-remove {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: auto;
+        padding: 0;
+    }
+
+    .woocommerce-cart table.shop_table td.product-thumbnail {
+        justify-content: center;
+        padding-bottom: 0.75rem;
+    }
+
+    .woocommerce-cart table.shop_table td.product-thumbnail img {
+        width: 100px;
+        height: auto;
+    }
+
+    .woocommerce-cart table.shop_table td.product-name {
+        font-size: 1.05rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .woocommerce-cart table.shop_table td.actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.5rem 0 1.5rem 0;
+        width: 100%;
+    }
+
+    .woocommerce-cart table.shop_table td.actions .coupon {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        float: none;
+    }
+
+    .woocommerce-cart table.shop_table td.actions .coupon input.input-text {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .woocommerce-cart table.shop_table td.actions .coupon button.button,
+    .woocommerce-cart table.shop_table td.actions button[name="update_cart"] {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .woocommerce-cart .cart-collaterals .cart_totals {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+        min-height: 48px;
         width: 100%;
     }
 
