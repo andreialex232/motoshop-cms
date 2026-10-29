@@ -44,6 +44,14 @@ get_header();
         <form id="testRideForm" class="dialogue-form" method="POST" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" novalidate>
             
             <input type="hidden" name="action" value="submit_test_ride">
+            <?php wp_nonce_field( 'test_ride_verify', 'test_ride_nonce' ); ?>
+
+            <!-- Anti-Spam Honeypot -->
+            <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+                <label for="test_ride_honeypot">Do not fill this field</label>
+                <input type="text" name="test_ride_honeypot" id="test_ride_honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
             <!-- STEP 1: Bike & License -->
             <fieldset class="form-step active" data-step="1">
                 <legend class="step-legend">Step 1: Choose Motorcycle & License</legend>

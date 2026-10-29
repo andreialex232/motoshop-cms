@@ -31,6 +31,16 @@ add_filter('comment_form_default_fields', 'remove_comment_website_field');
 
 function handle_contact_form_submission() {
 
+    // 1. SECURITY CHECK: Verify nonce (CSRF Protection)
+    if ( ! isset($_POST['contact_form_nonce']) || ! wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action') ) {
+        wp_die('Security check failed.');
+    }
+
+    // 2. BOT HONEYPOT TRAP
+    if ( ! empty($_POST['contact_honeypot']) ) {
+        wp_die(); // Drop automated bots without sending email
+    }
+
     // 3. GET & SANITIZE INPUTS (XSS Protection)
     $name    = isset($_POST['contact_name'])    ? trim(sanitize_text_field($_POST['contact_name'])) : '';
     $email   = isset($_POST['contact_email'])   ? trim(sanitize_email($_POST['contact_email']))     : '';
@@ -108,6 +118,16 @@ add_action('admin_post_nopriv_handle_contact_form', 'handle_contact_form_submiss
  * Handle Test Ride Booking Submission & Mailpit Routing
  */
 function cmsdm_handle_test_ride() {
+    // 1. Verify CSRF Nonce
+    if ( ! isset($_POST['test_ride_nonce']) || ! wp_verify_nonce( $_POST['test_ride_nonce'], 'test_ride_verify' ) ) {
+        wp_die( esc_html__( 'Security check failed. Please refresh and try again.', 'cmsdm' ), 403 );
+    }
+
+    // 2. BOT HONEYPOT TRAP
+    if ( ! empty($_POST['test_ride_honeypot']) ) {
+        wp_die();
+    }
+
     // 3. Validate Required Fields
     $required = array( 'motorcycle_model', 'license_type', 'ride_date', 'ride_time', 'rider_name', 'rider_email', 'rider_phone', 'terms_agree' );
     foreach ( $required as $field ) {

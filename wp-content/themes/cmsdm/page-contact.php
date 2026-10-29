@@ -100,6 +100,15 @@ get_header();
                 <!-- Action hook for functions.php -->
                 <input type="hidden" name="action" value="handle_contact_form">
 
+                <!-- CSRF Nonce -->
+                <?php wp_nonce_field('contact_form_action', 'contact_form_nonce'); ?>
+
+                <!-- Honeypot (bot trap) -->
+                <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+                    <label for="contact_honeypot">Do not fill this field</label>
+                    <input type="text" name="contact_honeypot" id="contact_honeypot" tabindex="-1" autocomplete="off">
+                </div>
+
                 <div class="form-group">
                     <label for="contact_name">Full name <span class="required">*</span></label>
                     <input type="text" name="contact_name" id="contact_name" required minlength="4">
