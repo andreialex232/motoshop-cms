@@ -101,3 +101,73 @@ add_action('admin_post_handle_contact_form', 'handle_contact_form_submission');
 add_action('admin_post_nopriv_handle_contact_form', 'handle_contact_form_submission');
 
 
+//=================================//
+// Test drive page logic
+//=================================//
+/**
+ * Handle Test Ride Booking Submission & Mailpit Routing
+ */
+function cmsdm_handle_test_ride() {
+    // 3. Validate Required Fields
+    $required = array( 'motorcycle_model', 'license_type', 'ride_date', 'ride_time', 'rider_name', 'rider_email', 'rider_phone', 'terms_agree' );
+    foreach ( $required as $field ) {
+        if ( empty( $_POST[$field] ) ) {
+            wp_safe_redirect( add_query_arg( 'booking', 'error', wp_get_referer() ) );
+            exit;
+        }
+    }
+
+    // 4. Sanitize Inputs
+    $model      = sanitize_text_field( $_POST['motorcycle_model'] );
+    $license    = sanitize_text_field( $_POST['license_type'] );
+    $experience = sanitize_text_field( $_POST['experience_level'] ?? 'Not specified' );
+    $date       = sanitize_text_field( $_POST['ride_date'] );
+    $time       = sanitize_text_field( $_POST['ride_time'] );
+    $loaner     = isset( $_POST['loaner_gear'] ) ? 'Yes' : 'No';
+    $name       = sanitize_text_field( $_POST['rider_name'] );
+    $email      = sanitize_email( $_POST['rider_email'] );
+    $phone      = sanitize_text_field( $_POST['rider_phone'] );
+    $notes      = sanitize_textarea_field( $_POST['rider_notes'] ?? '' );
+
+    // 5. Send Email Notification to Store Admin
+    $admin_email   = get_option( 'admin_email' );
+    $admin_subject = sprintf( 'New Test Ride Booking: %s - %s', $name, $model );
+    $admin_body    = "You received a new test ride booking request:\n\n"
+                   . "Rider: {$name}\n"
+                   . "Email: {$email}\n"
+                   . "Phone: {$phone}\n\n"
+                   . "Motorcycle: {$model}\n"
+                   . "License: {$license}\n"
+                   . "Experience: {$experience}\n"
+                   . "Scheduled Slot: {$date} at {$time}\n"
+                   . "Loaner Gear Needed: {$loaner}\n\n"
+                   . "Special Notes:\n{$notes}\n";
+
+    $admin_headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        "Reply-To: {$name} <{$email}>"
+    );
+
+    wp_mail( $admin_email, $admin_subject, $admin_body, $admin_headers );
+
+    // 6. Send Customer Confirmation Email
+    $customer_subject = "Test Ride Request Received - {$model}";
+    $customer_body    = "Hi {$name},\n\n"
+                      . "Thanks for scheduling a test ride with us!\n\n"
+                      . "Booking Details:\n"
+                      . "- Motorcycle: {$model}\n"
+                      . "- Date & Time: {$date} at {$time}\n"
+                      . "- Loaner Gear: {$loaner}\n\n"
+                      . "Please bring your valid driver's license ({$license}) when arriving at the showroom.\n\n"
+                      . "Best regards,\nMotoShop Team";
+
+    wp_mail( $email, $customer_subject, $customer_body, array( 'Content-Type: text/plain; charset=UTF-8' ) );
+
+    // 7. Redirect back with success message
+    wp_safe_redirect( add_query_arg( 'booking', 'success', wp_get_referer() ) );
+    exit;
+}
+add_action( 'admin_post_nopriv_submit_test_ride', 'cmsdm_handle_test_ride' );
+add_action( 'admin_post_submit_test_ride', 'cmsdm_handle_test_ride' );
+
+
