@@ -114,6 +114,13 @@ add_action('admin_post_handle_contact_form', 'handle_contact_form_submission');
 add_action('admin_post_nopriv_handle_contact_form', 'handle_contact_form_submission');
 
 
+// WooCommerce theme support
+function cmsdm_add_woocommerce_support() {
+    add_theme_support('woocommerce');
+}
+add_action('after_setup_theme', 'cmsdm_add_woocommerce_support');
+
+
 //=================================//
 // Test drive page logic
 //=================================//

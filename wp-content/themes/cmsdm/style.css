@@ -469,6 +469,30 @@ main#main-content {
 /* FRONT PAGE END */
 
 /* ==================================================
+   SHOP PAGE (WCAG AAA OPTIMIZED)
+================================================== */
+.shop-main {
+    padding: 3rem 1rem;
+    min-height: 70vh;
+}
+
+.shop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.shop-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* ==================================================
+   SHOP PAGE END
+================================================== */
+
+/* ==================================================
    TEST RIDE DIALOGUE PAGE START
 ================================================== */
 .test-ride-page {
