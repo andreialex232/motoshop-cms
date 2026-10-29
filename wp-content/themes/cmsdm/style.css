@@ -2750,6 +2750,52 @@ ul.woocommerce-order-overview li strong {
     color: #e11d48 !important;
 }
 
+/* 5. Customer Address Cards */
+.woocommerce-customer-details .woocommerce-columns--addresses,
+.woocommerce-customer-details .col2-set {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    margin: 2rem 0 !important;
+}
+
+.woocommerce-customer-details .woocommerce-column {
+    float: none !important;
+    flex: 1 1 calc(50% - 1.5rem) !important;
+    min-width: 280px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.woocommerce-customer-details .woocommerce-column__title {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 0.75rem !important;
+    white-space: nowrap !important;
+}
+
+.woocommerce-customer-details address {
+    display: block !important;
+    width: 100% !important;
+    min-height: 140px !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+    line-height: 1.6 !important;
+    color: #334155 !important;
+    font-style: normal !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+}
+/* ==================================================
+   ORDER RECEIVED (THANK YOU) PAGE END
+================================================== */
+
 /* ==================================================
    SUSTAINABILITY PAGE
 ================================================== */
@@ -3553,6 +3599,11 @@ body:not(.logged-in).woocommerce-account .woocommerce {
 
     .wc-block-checkout__sidebar {
         display: none !important;
+    }
+
+    .woocommerce-customer-details .woocommerce-column {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
     }
 
     /*my account orders page*/
