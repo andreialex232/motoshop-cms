@@ -121,6 +121,34 @@ function cmsdm_add_woocommerce_support() {
 add_action('after_setup_theme', 'cmsdm_add_woocommerce_support');
 
 
+//=================================//
+// Shop page filters
+//=================================//
+// Add A-Z and Z-A options to the sorting dropdown
+add_filter( 'woocommerce_catalog_orderby', function( $options ) {
+    unset( $options['popularity'] );
+    unset( $options['rating'] );
+
+    $options['title_asc']  = __( 'Name: A to Z', 'woocommerce' );
+    $options['title_desc'] = __( 'Name: Z to A', 'woocommerce' );
+    return $options;
+});
+
+// Handle the orderby query for title sorting
+add_filter( 'woocommerce_get_catalog_ordering_args', function( $args ) {
+    $orderby_value = isset( $_GET['orderby'] ) ? wc_clean( (string) wp_unslash( $_GET['orderby'] ) ) : wc_clean( get_option( 'woocommerce_default_catalog_orderby' ) );
+
+    if ( 'title_asc' === $orderby_value ) {
+        $args['orderby'] = 'title';
+        $args['order']   = 'ASC';
+    } elseif ( 'title_desc' === $orderby_value ) {
+        $args['orderby'] = 'title';
+        $args['order']   = 'DESC';
+    }
+
+    return $args;
+});
+
 // Filter for different categories
 function cmsdm_widgets_init() {
     register_sidebar( array(
@@ -245,6 +273,13 @@ function motoshop_dynamic_meta_description() {
     if ( is_front_page() || is_home() ) {
         // Front page or Blog main page
         $description = get_bloginfo( 'description' ) ?: 'Explore premium motorcycles, high-performance protective gear, and workshop services at MotoShop.';
+    } elseif ( function_exists( 'is_shop' ) && is_shop() ) {
+        // WooCommerce main shop page
+        $description = 'Browse our selection of modern motorcycles, helmets, jackets, riding boots, and replacement parts at MotoShop.';
+    } elseif ( function_exists( 'is_product_category' ) && is_product_category() ) {
+        // Product category pages
+        $term_desc = term_description();
+        $description = ! empty( $term_desc ) ? $term_desc : 'Shop ' . single_term_title( '', false ) . ' designed for rider safety and durability at MotoShop.';
     } elseif ( is_singular() ) {
         // Regular single posts, pages (Contact, Sustainability, Test Ride, etc.)
         global $post;
