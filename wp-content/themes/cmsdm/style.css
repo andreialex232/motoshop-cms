@@ -2931,6 +2931,10 @@ ul.woocommerce-order-overview li strong {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .wc-block-checkout__sidebar {
+        display: none !important;
+    }
+
     .category-collapsible summary.widget-title {
         pointer-events: auto;
         cursor: pointer;
