@@ -288,6 +288,15 @@ function motoshop_dynamic_meta_description() {
     } elseif ( function_exists( 'is_shop' ) && is_shop() ) {
         // WooCommerce main shop page
         $description = 'Browse our selection of modern motorcycles, helmets, jackets, riding boots, and replacement parts at MotoShop.';
+    } elseif ( function_exists( 'is_product' ) && is_product() ) {
+        // Single WooCommerce product page
+        global $post;
+        $product = function_exists( 'wc_get_product' ) ? wc_get_product( $post->ID ) : null;
+        if ( $product && $product->get_short_description() ) {
+            $description = $product->get_short_description();
+        } else {
+            $description = get_the_excerpt( $post->ID ) ?: wp_trim_words( get_the_content(), 25 );
+        }
     } elseif ( function_exists( 'is_product_category' ) && is_product_category() ) {
         // Product category pages
         $term_desc = term_description();

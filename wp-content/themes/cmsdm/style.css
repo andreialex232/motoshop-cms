@@ -726,6 +726,27 @@ main#main-content {
     margin-bottom: 0.5rem;
 }
 
+/*price when you open product*/
+.single-product div.product p.price,
+.single-product div.product span.price,
+.single-product .summary .price,
+.single-product .summary .price .amount {
+    color: #9f1239 !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+}
+
+/*ON SALE badge*/
+body.woocommerce span.onsale,
+body.woocommerce-page span.onsale,
+body.woocommerce ul.products li.product span.onsale,
+body.woocommerce div.product span.onsale,
+.woocommerce span.onsale {
+    background: #9f1239 !important;
+    background-color: #9f1239 !important;
+    color: #ffffff !important;
+}
+
 /* Product Price: high-contrast dark with AAA-safe red accents */
 .woocommerce ul.products li.product .price,
 .woocommerce ul.products li.product .price .amount {
