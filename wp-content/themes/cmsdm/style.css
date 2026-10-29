@@ -966,6 +966,24 @@ main#main-content {
         grid-template-columns: 1fr;
     }
 
+    .single-post-container {
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .post-title {
+        font-size: 1.85rem;
+    }
+
+    .post-featured-image {
+        margin-bottom: 1.5rem;
+    }
+
+    .post-content {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
     .sustainability-hero {
         padding: 3.5rem 1.5rem;
     }
@@ -1050,5 +1068,16 @@ main#main-content {
         padding: 3rem 1.5rem 1.5rem;
     }
 
+    .comment-meta {
+        align-items: flex-start;
+    }
+
+    .comment-form-cookies-consent {
+        align-items: flex-start;
+    }
+
+    .comment-form .submit {
+        width: 100%;
+    }
 }
 /* RESPONSIVE BREAKPOINTS END */
