@@ -726,6 +726,27 @@ main#main-content {
     margin-bottom: 0.5rem;
 }
 
+/*price when you open product*/
+.single-product div.product p.price,
+.single-product div.product span.price,
+.single-product .summary .price,
+.single-product .summary .price .amount {
+    color: #9f1239 !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+}
+
+/*ON SALE badge*/
+body.woocommerce span.onsale,
+body.woocommerce-page span.onsale,
+body.woocommerce ul.products li.product span.onsale,
+body.woocommerce div.product span.onsale,
+.woocommerce span.onsale {
+    background: #9f1239 !important;
+    background-color: #9f1239 !important;
+    color: #ffffff !important;
+}
+
 /* Product Price: high-contrast dark with AAA-safe red accents */
 .woocommerce ul.products li.product .price,
 .woocommerce ul.products li.product .price .amount {
@@ -831,6 +852,110 @@ main#main-content {
     font-size: 1.1rem;
 }
 
+/* Single Product: Form, Inputs & Buttons */
+.single-product form.cart {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 2rem 0 !important;
+}
+
+.single-product .quantity {
+    display: inline-flex !important;
+    margin: 0 !important;
+}
+
+.single-product .quantity input.qty {
+    width: 60px !important;
+    height: 48px !important;
+    padding: 0 8px !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background-color: #f8fafc !important;
+    border: 1.5px solid #94a3b8 !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    transition: all 0.2s ease-in-out !important;
+    box-sizing: border-box !important;
+}
+
+.single-product .quantity input.qty:focus {
+    border-color: #9f1239 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(159, 18, 57, 0.2) !important;
+}
+
+.single-product .quantity input.qty::-webkit-outer-spin-button,
+.single-product .quantity input.qty::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+.single-product .quantity input.qty {
+    -moz-appearance: textfield !important;
+}
+
+.single-product button.single_add_to_cart_button.button {
+    min-height: 48px !important;
+    padding: 0 2rem !important;
+    background-color: #9f1239 !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+    box-shadow: 0 4px 6px -1px rgba(159, 18, 57, 0.25) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.single-product button.single_add_to_cart_button.button:hover {
+    background-color: #881337 !important;
+    box-shadow: 0 6px 12px -2px rgba(159, 18, 57, 0.35) !important;
+    transform: translateY(-1px) !important;
+}
+
+.single-product button.single_add_to_cart_button.button:active {
+    transform: translateY(0) !important;
+}
+
+/* Category Meta Section */
+.single-product .product_meta {
+    margin-top: 1.5rem !important;
+    padding-top: 1.25rem !important;
+    border-top: 1px solid #e2e8f0 !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+}
+
+.single-product .product_meta .posted_in a {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 44px !important;
+    margin-left: 6px !important;
+    padding: 0.5rem 1rem !important;
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    border: 1px solid #cbd5e1 !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.single-product .product_meta .posted_in a:hover {
+    background-color: #9f1239 !important;
+    border-color: #9f1239 !important;
+    color: #ffffff !important;
+}
 /* ==================================================
    SHOP PAGE END
 ================================================== */
